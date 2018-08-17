@@ -1,5 +1,6 @@
 package com.kelvin.spring;
 
+import com.kelvin.spring._1UsingEventWithComponents.components.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.vaadin.flow.component.button.Button;
@@ -19,7 +20,13 @@ public class MainView extends VerticalLayout {
         Button button = new Button("Click me",
                 event -> template.setValue("Clicked!"));
         // This is a simple template example
-        add(button, template);
+
+        TextField textField = new TextField();
+        textField.addChangeListener(e -> {
+            TextField source = e.getSource();
+            System.out.println(e.getSource());
+        });
+        add(textField, button, template);
         setClassName("main-layout");
     }
 
