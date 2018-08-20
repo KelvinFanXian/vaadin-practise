@@ -2,9 +2,28 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 
 <!-- Defines the example-template element -->
+<style>
+    nav a{
+        display: block;
+    }
+</style>
 <dom-module id="example-template">
     <template>
         <span>[[value]]</span>
+        <nav>
+            <h4>Creating Components</h4>
+            <a href="event-component">使用事件于组件</a>
+            <a href="simple-component">创建一个简单的组件（使用Element API）</a>
+            <a href="many-elements">创建一个组件，基于多个元素</a>
+            <a href="help2properties">使用APIHelpers定义组件属性</a>
+            <a href="existing-components">使用存在的组件创建一个组件</a>
+            <a href="creating-container">创建可以包含其他容器的组件</a>
+            <a href="component-lifecycle-callbacks">组件生命周期回调</a>
+
+            <h4>Advanced Topics</h4>
+            <a href="application-lifecycle">应用生命周期</a>
+            <a href="localization">本地化</a>
+        </nav>
     </template>
 
     <!-- Polymer boilerplate to register the example-template element -->

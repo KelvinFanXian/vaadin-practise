@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/vaadin-text-field/vaadin-text-field.html">
+
+<dom-module id="event-component">
+    <template>
+<ul>
+  Using Event with Components 
+ <li>定义事件 {public class ChangeEvent extends ComponentEvent
+  <textfield>
+   }
+  </textfield></li>
+ <li>自服务端触发事件</li>
+ <li>自客户端触发事件 {@DomEvent("change")}</li>
+ <li>添加EventData （事件附带的数据，比如event.button、element.value）</li>
+ <li>过滤事件 {@DomEvent(value = "keypress", filter = "event.key == 'Enter'")}</li>
+ <li>限制事件频率 （暂时没仔细看）</li>
+</ul>
+<p>自己封装的TextField</p>
+<input id="myInput">
+<label id="inputValue">[[inputValue]]</label>
+<p>下面试一下vaadin封装的TextField</p>
+<vaadin-text-field id="vaadinTextField" placeholder="Placeholder"></vaadin-text-field>
+<label>[[vaadinTextFieldValue]]</label>
+</template>
+
+    <script>
+        class EventComponent extends Polymer.Element {
+            static get is() {
+                return 'event-component';
+            }
+
+            static get properties() {
+                return {
+                    // Declare your properties here.
+                };
+            }
+        }
+        customElements.define(EventComponent.is, EventComponent);
+    </script>
+</dom-module>

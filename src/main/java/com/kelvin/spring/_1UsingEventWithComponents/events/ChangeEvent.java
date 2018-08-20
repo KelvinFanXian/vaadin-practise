@@ -3,6 +3,7 @@ package com.kelvin.spring._1UsingEventWithComponents.events;
 import com.kelvin.spring._1UsingEventWithComponents.components.TextField;
 import com.vaadin.flow.component.ComponentEvent;
 import com.vaadin.flow.component.DomEvent;
+import com.vaadin.flow.component.EventData;
 
 
 /**
@@ -12,6 +13,11 @@ import com.vaadin.flow.component.DomEvent;
  */
 @DomEvent("change") // 自客户端触发事件
 public class ChangeEvent extends ComponentEvent<TextField> {
+    public ChangeEvent(TextField source, boolean fromClient, @EventData("element.value") String value) {
+        super(source, fromClient);
+        source.getElement().setAttribute("value", value);
+    }
+
     public ChangeEvent(TextField source, boolean fromClient) {
         super(source, fromClient);
     }

@@ -16,9 +16,14 @@ public class TextField extends Component {
         return addListener(ChangeEvent.class, listener);
     }
 
-    //自服务端触发事件
     public void setValue(String value){
         getElement().setAttribute("value", value);
+
+        //自服务端触发事件
         fireEvent(new ChangeEvent(this,false));
+    }
+
+    public String getValue(){
+        return getElement().getAttribute("value");
     }
 }
